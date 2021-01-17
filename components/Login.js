@@ -7,7 +7,7 @@
  */
 
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -21,7 +21,8 @@ import {
 } from 'react-native';
 
 const Login = ({navigation}) => {
-    //const [value, onChangeText] = useState('');
+  const [email, onChangeEmail] = useState('');
+  const [password, onChangePassword] = useState('');
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -29,15 +30,36 @@ const Login = ({navigation}) => {
           <View style={styles.body}>
             <View style={{flex:2}}/>
             <Text style={styles.loginTitle}>Login</Text>
+            <View style={styles.textContainer}>
+                <TextInput
+                    style={styles.inputText}
+                    placeholder="Email Address"
+                    onChangeText={text => onChangeEmail(text)}
+                    value={email}/>
+            </View>
+            <View style={styles.textContainer}>
+                <TextInput
+                    style={styles.inputText}
+                    secureTextEntry={true}
+                    placeholder="Enter Password"
+                    onChangeText={text => onChangePassword(text)}
+                    value={password}/>
+            </View>
             <View style={styles.sectionContainer}>
-              <TouchableWithoutFeedback
-                onPress={() => {
-                  navigation.navigate('');
-                }}>
-                <View style={styles.buttonLogin}>
-                  <Text style={styles.buttonText}>Login</Text>
-                </View>
-              </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback
+                    onPress={() => {
+                    navigation.navigate('Home');
+                    }}>
+                    <View style={styles.buttonLogin}>
+                    <Text style={styles.buttonText}>Login</Text>
+                    </View>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback
+                    onPress={() => {
+                    navigation.navigate('SignUp');
+                    }}>
+                    <Text style={styles.signUpLink}>Sign up for hello roomies!</Text>
+                </TouchableWithoutFeedback>
             </View>
             <View style={{flex:2}}/>
           </View>
@@ -56,8 +78,8 @@ const styles = StyleSheet.create({
     paddingRight: 90,
   },
   buttonText: {
-    
     fontSize: 30,
+    justifyContent: "center",
     textAlign: "center",
     color: "black",
   },
@@ -65,7 +87,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   sectionContainer: {
     marginTop: 20,
@@ -75,7 +97,29 @@ const styles = StyleSheet.create({
   loginTitle: {
       fontSize: 30,
     fontWeight: "bold",
-  }
+  },
+  textContainer: {
+    borderWidth: 1,
+    borderRadius: 100,
+    backgroundColor: "white",
+    width: "85%",
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginTop: 24,
+  },
+  inputText: {
+    fontSize: 15,
+    color: "black",
+    fontStyle:"italic",
+    paddingLeft: 100,
+    paddingRight: 100,
+  },
+  signUpLink: {
+      marginTop: 15,
+      fontSize: 15,
+      color: "black",
+      textAlign: "center",
+  },
 });
 
 export default Login;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -19,51 +19,50 @@ import {
 } from 'react-native';
 
 const SignUp = ({navigation}) => {
+    const [email, onChangeEmail] = useState('');
+    const [password, onChangePassword] = useState('');
+    const [verifyPassword, onChangeVerifyPassword] = useState('');
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={styles.body}>
           <View style={styles.body}>
-            <View style={{flex: 2}}></View>
+            <View style={{flex: 10}}></View>
             <View>
-             <TextInput secureTextEntry={true} style={{ height: 40, borderColor: 'grey', borderWidth: 0 }}/>
-               <Text style={styles.headerText}>Create Account</Text>
-                
+                <Text style={styles.headerText}>Create Account</Text>
             </View>
-            <View style={{flex: 2}}></View>            
-            <View style={styles.sectionContainer}>
-            <View></View>
-            
-            <View></View>
-            
-            <View style={styles.buttonLogin}>
-                  <Text style={styles.buttonText}>Email Address</Text>
-                </View>
+
+            <View style={{flex: 1}}></View>
+            <View style={styles.textContainer}>
+                <TextInput
+                    style={styles.buttonText}
+                    placeholder="Email Address"
+                    onChangeText={text => onChangeEmail(text)}
+                    value={email}/>
             </View>
-            <View style={styles.hLineContainer}>
-              <View style={styles.hLine}/>
-               <View></View>
-            
+            <View style={styles.textContainer}>
+                <TextInput
+                    style={styles.buttonText}
+                    secureTextEntry={true}
+                    placeholder="Enter Password"
+                    onChangeText={text => onChangePassword(text)}
+                    value={password}/>
             </View>
-             <View></View>
-            <View style={styles.buttonLogin}>
-                  <Text style={styles.buttonText}>Password</Text>
-                </View>
-            <View style={styles.sectionContainer}>
+            <View style={styles.textContainer}>
+                <TextInput
+                    style={styles.buttonText}
+                    secureTextEntry={true}
+                    placeholder="Verify Password"
+                    onChangeText={text => onChangeVerifyPassword(text)}
+                    value={verifyPassword}/>
             </View>
-            <View style={styles.buttonLogin}>
-                  <Text style={styles.buttonText}>Verify Password</Text>
-                </View>
-                
             <View style={{flex: 2}}></View>
-            <TouchableWithoutFeedback
-                onPress={() => {
-                  navigation.navigate('StartPage');
-                }}>
-            <View style={styles.continueLogin}>
-            
-                  <Text style={styles.continueText}>Sign Up</Text>
+            <TouchableWithoutFeedback onPress={() => {navigation.navigate('Home');}}>
+                <View style={styles.signUpButton}>
+                    <Text style={styles.signUpText}>Sign Up</Text>
                 </View>
+            </TouchableWithoutFeedback>
+            <View style={{flex: 10}}></View>
           </View>
       </SafeAreaView>
     </>
@@ -71,71 +70,53 @@ const SignUp = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  buttonLogin: {
-    borderWidth: 3,
-    borderRadius: 100,
-    backgroundColor: "white",
-
-  },
-
-continueLogin: {
-    borderWidth: 3,
-    borderRadius: 100,
-    backgroundColor: "#fcd158",
-
-  },
-
-  headerText:{
-    fontSize: 45,
-    textAlign: "center",
-    color: "navy blue",
-    fontStyle:"oblique"
-
-
-  },
-
-   continueText:{
-    fontSize: 30,
-    textAlign: "center",
-    color: "navy blue",
-    fontStyle:"oblique"
-
-
-
-
-  },
-
-  buttonText: {
-    fontSize: 30,
-    textAlign: "center",
-    color: "navy blue",
-    fontStyle:"oblique"
-    
-  },
   body: {
-    backgroundColor: "#E5E5E5",
+    backgroundColor: "#FDFDFF",
     flex: 1,
-  },
-  sectionContainer: {
-    marginTop: 20,
-    marginBottom: 20,
-    paddingHorizontal: 24,
-  },
-  hLine: {
-    height: 1,
-    borderColor: "#E5E5E5",
-    borderWidth: 10,
-    width: "75%",
-    opacity: 0.5,
-  },
-  hLineContainer: {
     justifyContent: "center",
     alignItems: "center"
   },
-  textbox:{
-    height:1000,
-    borderColor:"green",
-  }
+  headerText:{
+    fontSize: 40,
+    textAlign: "center",
+    color: "black",
+    fontStyle:"italic",
+    fontWeight:"bold",
+  },
+  buttonText: {
+    fontSize: 15,
+    textAlign: "center",
+    color: "black",
+    fontStyle:"italic",
+  },
+  textContainer: {
+    borderWidth: 1,
+    borderRadius: 100,
+    backgroundColor: "white",
+    width: "85%",
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginTop: 24,
+    paddingRight: 90,
+    paddingLeft: 90,
+  },
+  signUpButton: {
+    borderRadius: 100,
+    backgroundColor: "#fcd158",
+    borderWidth: 0,
+    width: "75%",
+  },
+signUpText:{
+    fontSize: 30,
+    textAlign: "center",
+    color: "black",
+    fontStyle:"italic",
+    fontWeight: "bold",
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingRight: 90,
+    paddingLeft: 90,
+  },
 });
 
 export default SignUp;

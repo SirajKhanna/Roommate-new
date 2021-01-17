@@ -37,7 +37,7 @@ const StartPage = ({navigation}) => {
                 onPress={() => {
                   navigation.navigate('Login');
                 }}>
-                <View style={styles.buttonLogin}>
+                <View style={styles.getStartedButton}>
                   <Text style={styles.buttonText}>Get Started!</Text>
                 </View>
               </TouchableWithoutFeedback>
@@ -63,14 +63,14 @@ const styles = StyleSheet.create({
     opacity: 1,
   },
   circle: {
-      height: 200,
+    height: 200,
       width: 200,
       borderRadius: 100,
       backgroundColor: "black",
     justifyContent: "center",
     alignItems: "center"
   },
-  buttonLogin: {
+  getStartedButton: {
     borderWidth: 4,
     borderRadius: 100,
     backgroundColor: "#EAC435",
@@ -87,17 +87,6 @@ const styles = StyleSheet.create({
     fontSize: 32,
     textAlign: "center",
     color: "black",
-  },
-  hLine: {
-    height: 1,
-    borderColor: "black",
-    borderWidth: 1,
-    width: "75%",
-    opacity: 0.5,
-  },
-  hLineContainer: {
-    justifyContent: "center",
-    alignItems: "center"
   },
   background: {
     flex: 1,
