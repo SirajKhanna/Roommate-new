@@ -13,10 +13,9 @@ import StartPage from './components/StartPage.js';
 import SignUp from './components/SignUp.js';
 import { createStackNavigator } from '@react-navigation/stack';
 
-
-
 const App = () => {
   const Stack = createStackNavigator();
+  
   return (
       <NavigationContainer>
       <Stack.Navigator initialRouteName='Home' >

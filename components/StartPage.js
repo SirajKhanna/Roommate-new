@@ -16,57 +16,19 @@ import {
   Text,
   TextInput, 
   TouchableWithoutFeedback,
+  ImageBackground,
   StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
 const StartPage = ({navigation}) => {
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={styles.body}>
-          <View style={styles.body}>
-            <View style={{flex: 2}}></View>
-            <View>
-                <TextInput style={{ height: 40, borderColor: 'gray', borderWidth: 1 }} onChangeText={text => onChangeText(text)} value={value} />
-            </View>
-            <View>
-                <TextInput secureTextEntry={true} style={{ height: 40, borderColor: 'gray', borderWidth: 1 }} onChangeText={text => onChangeText(text)} value={value}/>
-            </View>
-            <View style={{flex: 2}}></View>            
-            <View style={styles.sectionContainer}>
-              <TouchableWithoutFeedback
-                onPress={() => {
-                  navigation.navigate('SignUp');
-                }}>
-                <View style={styles.buttonLogin}>
-                  <Text style={styles.buttonText}>Login</Text>
-                </View>
-              </TouchableWithoutFeedback>
-            </View>
-            <View style={styles.hLineContainer}>
-              <View style={styles.hLine}/>
-            </View>
-            <View style={styles.sectionContainer}>
-              <TouchableWithoutFeedback
-                onPress={() => {
-                  navigation.navigate('SignUp');
-                }}>
-                <View style={styles.buttonLogin}>
-                  <Text style={styles.buttonText}>Sign In</Text>
-                </View>
-              </TouchableWithoutFeedback>
-            </View>
-            
-            <View style={{flex: 2}}></View>
-          </View>
+        <ImageBackground source='./assets/get-started.png' style={}>
+          
+          </ImageBackground>
       </SafeAreaView>
     </>
   );
