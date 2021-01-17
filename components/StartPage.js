@@ -31,7 +31,6 @@ const StartPage = ({navigation}) => {
   const [email, onChangeEmail] = React.useState('Enter your Email Here');
   const [password, onChangePassword] = React.useState('');
   
-
   return (
     <>
       <StatusBar barStyle="dark-content" />
