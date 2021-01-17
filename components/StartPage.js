@@ -6,8 +6,8 @@
  * @flow strict-local
  */
 
-import 'react-native-gesture-handler';
-import React from 'react';
+import 'react-native';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -21,78 +21,178 @@ import {
 } from 'react-native';
 
 const StartPage = ({navigation}) => {
+  const [fullname, onChangeFullname] = useState('');
+  const [school, onChangeSchool] = useState('');
+  const [program, onChangeProgram] = useState('');
+  const [whatyear, onChangeWhatyear] = useState('');
 
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <ImageBackground source={require('../assets/get-started.png')} style={styles.background}>
+      
         <SafeAreaView style={styles.body}>
-            <View style={{flex:3}}/>
-            <View style={styles.circle}>
-                <Text style={styles.title}>hello roomie!</Text>
+        <View style={styles.spacingtext}>
+                <Text style={styles.spacingtext}>+</Text>
+        </View>
+
+         <View style={styles.circle}>
+                <Text style={styles.title}>+</Text>
+         </View>
+            
+         <Text style={styles.headerText}>Enter a profile picture!</Text>
+            
+         <View style={{flex:80}}/>
+          <Text style={styles.headerText}>Tell Us Your Name</Text>
+           <View style={styles.answerFormat}>
+            <TextInput style={styles.answertext}
+            placeholder = "Enter Full Name"
+            onChangeText={text=>onChangeFullname(text)}
+            value={fullname}/>
+           </View>
+
+            <View style={{flex:75}}/>
+            <Text style={styles.headerText}>What school do you go to?</Text>
+              <View style={styles.answerFormat}>
+                  <TextInput style={styles.answertext}
+                  placeholder="Enter School Name"
+                  onChangeText={text=>onChangeSchool(text)}
+                  />
+             </View>
+
+            <View style={{flex:75}}/>
+            <Text style={styles.headerText}>What are you studying?</Text>
+              <View style={styles.answerFormat}>
+                  <TextInput style={styles.answertext}
+                  placeholder="Enter program name"
+                  onChangeText={text=>onChangeProgram(text)}
+                  />
             </View>
-            <View style={{flex:4}}/>
+
+            <View style={{flex:75}}/><Text style={styles.headerText}>Current year?</Text>
+              <View style={styles.answerFormat}>
+                  <TextInput style={styles.answertext}
+                  placeholder="Enter current year"
+                  onChangeText={text=>onChangeWhatyear(text)}
+                  />
+             </View>
+
+            <View style={{flex:75}}/>
+          
+            
+            <View style={{flex:0}}/>
             <View style={styles.sectionContainer}>
               <TouchableWithoutFeedback
                 onPress={() => {
-                  navigation.navigate('Login');
+                  navigation.navigate('Home');
                 }}>
-                <View style={styles.getStartedButton}>
-                  <Text style={styles.buttonText}>Get Started!</Text>
+                <View style={styles.buttonLogin}>
+                  <Text style={styles.buttonText}>Next</Text>
                 </View>
               </TouchableWithoutFeedback>
             </View>
             
-            <View style={{flex:1}}/>
+            <View style={{flex:75}}/>
         </SafeAreaView>
-    </ImageBackground>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  body: {
+
+answertext:{
+    fontSize: 23,
+    textAlign: "left",
+    color: "#E5E5E5",
+    fontStyle:"oblique",
+    backgroundColor:"white",
+    borderRadius:3
+  },
+
+answerFormat: {
+    alignContent:"left",
+    borderWidth: 3,
+    borderRadius: 100,
+    backgroundColor:"white",
+    borderColor: "#E5E5E5",
+    paddingLeft: 60,
+    paddingRight: 60,
+  },
+
+headerText:{
+    fontSize: 25,
+    textAlign: "left",
+    color: "navy blue",
+    fontStyle:"oblique"
+  },
+
+spacingtext:{
+   color:"#fcd158",
+   fontSize:50
+},
+body: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor:"#fcd158"
   },
-  sectionContainer: {
+
+sectionContainer: {
     marginTop: 20,
     marginBottom: 20,
     paddingHorizontal: 50,
     opacity: 1,
   },
-  circle: {
-    height: 200,
-      width: 200,
-      borderRadius: 100,
-      backgroundColor: "black",
+
+circle: {
+    height: 100,
+    width: 100,
+    borderRadius: 100,
+    backgroundColor: "black",
     justifyContent: "center",
     alignItems: "center"
   },
-  getStartedButton: {
+
+buttonLogin: {
     borderWidth: 4,
     borderRadius: 100,
-    backgroundColor: "#EAC435",
-    borderColor: "#EAC435",
+    backgroundColor: "black",
+    borderColor: "black",
     opacity: 1,
     paddingLeft: 60,
     paddingRight: 60,
   },
-  title: {
-    color: "yellow",
-    fontSize: 30,
+
+title: {
+    color: "#EAC435",
+    fontSize: 80,
   },
-  buttonText: {
+
+buttonText: {
     fontSize: 32,
     textAlign: "center",
-    color: "black",
+    color: "#E5E5E5",
+    fontStyle:"oblique"
   },
-  background: {
+
+hLine: {
+    height: 1,
+    borderColor: "#E5E5E5",
+    borderWidth: 1,
+    width: "75%",
+    opacity: 0.5,
+  },
+
+hLineContainer: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
+
+background: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center"
   },
+
 });
 
 export default StartPage;
