@@ -82,7 +82,7 @@ const Setup2 = ({navigation}) => {
             <View style={styles.sectionContainer}>
               <TouchableWithoutFeedback
                 onPress={() => {
-                  navigation.navigate('Home');
+                  navigation.navigate('Setup3');
                 }}>
                 <View style={styles.buttonLogin}>
                   <Text style={styles.buttonText}>Next</Text>

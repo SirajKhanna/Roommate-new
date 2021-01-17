@@ -92,7 +92,7 @@ const Setup3 = ({navigation}) => {
             <View style={styles.sectionContainer}>
               <TouchableWithoutFeedback
                 onPress={() => {
-                  navigation.navigate('Home');
+                  navigation.navigate('Confirmation');
                 }}>
                 <View style={styles.buttonLogin}>
                   <Text style={styles.buttonText}>Complete Profile</Text>
