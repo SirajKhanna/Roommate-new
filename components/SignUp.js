@@ -57,7 +57,7 @@ const SignUp = ({navigation}) => {
                     value={verifyPassword}/>
             </View>
             <View style={{flex: 2}}></View>
-            <TouchableWithoutFeedback onPress={() => {navigation.navigate('Home');}}>
+            <TouchableWithoutFeedback onPress={() => {navigation.navigate('Profile');}}>
                 <View style={styles.signUpButton}>
                     <Text style={styles.signUpText}>Sign Up</Text>
                 </View>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FDFDFF",
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   headerText:{
     fontSize: 40,
@@ -97,14 +97,13 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     marginTop: 24,
-    paddingRight: 90,
-    paddingLeft: 90,
+    paddingRight: 100,
+    paddingLeft: 100,
   },
   signUpButton: {
     borderRadius: 100,
     backgroundColor: "#fcd158",
     borderWidth: 0,
-    width: "75%",
   },
 signUpText:{
     fontSize: 30,
@@ -114,8 +113,8 @@ signUpText:{
     fontWeight: "bold",
     paddingTop: 10,
     paddingBottom: 10,
-    paddingRight: 90,
-    paddingLeft: 90,
+    paddingRight: 80,
+    paddingLeft: 80,
   },
 });
 
