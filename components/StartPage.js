@@ -25,11 +25,11 @@ const StartPage = ({navigation}) => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={styles.body}>
-        <ImageBackground source='./assets/get-started.png' style={}>
-          
-          </ImageBackground>
-      </SafeAreaView>
+      <ImageBackground source={require('../assets/get-started.png')} style={styles.background}>
+        <SafeAreaView style={styles.body}>
+            
+        </SafeAreaView>
+    </ImageBackground>
     </>
   );
 };
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   body: {
     backgroundColor: "#E5E5E5",
     flex: 1,
+    opacity: 0,
   },
   sectionContainer: {
     marginTop: 20,
@@ -66,8 +67,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  textBox: {
-
+  background: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
   },
 });
 

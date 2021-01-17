@@ -21,12 +21,11 @@ import {
 } from 'react-native';
 
 const Login = ({navigation}) => {
-const [value, onChangeText] = useState('');
+    const [value, onChangeText] = useState('');
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={styles.body}>
-        <ImageBackground source='./assets/get-started.png'>
           <View style={styles.body}>
             <View style={{flex: 2}}></View>
             <View>
@@ -62,7 +61,6 @@ const [value, onChangeText] = useState('');
             
             <View style={{flex: 2}}></View>
           </View>
-          </ImageBackground>
       </SafeAreaView>
     </>
   );
