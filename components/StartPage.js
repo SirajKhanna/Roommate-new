@@ -35,7 +35,7 @@ const StartPage = ({navigation}) => {
             <View style={styles.sectionContainer}>
               <TouchableWithoutFeedback
                 onPress={() => {
-                  navigation.navigate('SignUp');
+                  navigation.navigate('Login');
                 }}>
                 <View style={styles.buttonLogin}>
                   <Text style={styles.buttonText}>Get Started!</Text>

@@ -21,45 +21,25 @@ import {
 } from 'react-native';
 
 const Login = ({navigation}) => {
-    const [value, onChangeText] = useState('');
+    //const [value, onChangeText] = useState('');
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={styles.body}>
           <View style={styles.body}>
-            <View style={{flex: 2}}></View>
-            <View>
-                <TextInput style={{ height: 40, borderColor: 'gray', borderWidth: 1 }} onChangeText={text => onChangeText(text)} value={value} />
-            </View>
-            <View>
-                <TextInput secureTextEntry={true} style={{ height: 40, borderColor: 'gray', borderWidth: 1 }} onChangeText={text => onChangeText(text)} value={value}/>
-            </View>
-            <View style={{flex: 2}}></View>            
+            <View style={{flex:2}}/>
+            <Text style={styles.loginTitle}>Login</Text>
             <View style={styles.sectionContainer}>
               <TouchableWithoutFeedback
                 onPress={() => {
-                  navigation.navigate('SignUp');
+                  navigation.navigate('');
                 }}>
                 <View style={styles.buttonLogin}>
                   <Text style={styles.buttonText}>Login</Text>
                 </View>
               </TouchableWithoutFeedback>
             </View>
-            <View style={styles.hLineContainer}>
-              <View style={styles.hLine}/>
-            </View>
-            <View style={styles.sectionContainer}>
-              <TouchableWithoutFeedback
-                onPress={() => {
-                  navigation.navigate('SignUp');
-                }}>
-                <View style={styles.buttonLogin}>
-                  <Text style={styles.buttonText}>Sign In</Text>
-                </View>
-              </TouchableWithoutFeedback>
-            </View>
-            
-            <View style={{flex: 2}}></View>
+            <View style={{flex:2}}/>
           </View>
       </SafeAreaView>
     </>
@@ -70,37 +50,31 @@ const styles = StyleSheet.create({
   buttonLogin: {
     borderWidth: 4,
     borderRadius: 100,
-    backgroundColor: "black",
-
+    backgroundColor: "#EAC435",
+    borderColor: "#EAC435",
+    paddingLeft: 90,
+    paddingRight: 90,
   },
   buttonText: {
     fontSize: 30,
     textAlign: "center",
-    color: "white",
+    color: "black",
   },
   body: {
-    backgroundColor: "#E5E5E5",
+    backgroundColor: "white",
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
   },
   sectionContainer: {
     marginTop: 20,
     marginBottom: 20,
     paddingHorizontal: 24,
   },
-  hLine: {
-    height: 1,
-    borderColor: "black",
-    borderWidth: 1,
-    width: "75%",
-    opacity: 0.5,
-  },
-  hLineContainer: {
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  textBox: {
-
-  },
+  loginTitle: {
+      fontSize: 30,
+    fontWeight: "bold",
+  }
 });
 
 export default Login;
