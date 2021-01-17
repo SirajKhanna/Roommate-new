@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     paddingRight: 90,
   },
   buttonText: {
+    
     fontSize: 30,
     textAlign: "center",
     color: "black",

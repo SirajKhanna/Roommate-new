@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -6,6 +5,7 @@ import {
   ScrollView,
   View,
   Text,
+  TextInput,
   TouchableWithoutFeedback,
   StatusBar,
 } from 'react-native';
@@ -16,7 +16,7 @@ import {
   Colors,
   DebugInstructions,
   ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+} from 'react-native';
 
 const SignUp = ({navigation}) => {
   return (
@@ -25,16 +25,45 @@ const SignUp = ({navigation}) => {
       <SafeAreaView style={styles.body}>
           <View style={styles.body}>
             <View style={{flex: 2}}></View>
+            <View>
+             <TextInput secureTextEntry={true} style={{ height: 40, borderColor: 'grey', borderWidth: 0 }}/>
+               <Text style={styles.headerText}>Create Account</Text>
+                
+            </View>
             <View style={{flex: 2}}></View>            
             <View style={styles.sectionContainer}>
+            <View></View>
+            
+            <View></View>
+            
+            <View style={styles.buttonLogin}>
+                  <Text style={styles.buttonText}>Email Address</Text>
+                </View>
             </View>
             <View style={styles.hLineContainer}>
               <View style={styles.hLine}/>
+               <View></View>
+            
             </View>
+             <View></View>
+            <View style={styles.buttonLogin}>
+                  <Text style={styles.buttonText}>Password</Text>
+                </View>
             <View style={styles.sectionContainer}>
             </View>
-            
+            <View style={styles.buttonLogin}>
+                  <Text style={styles.buttonText}>Verify Password</Text>
+                </View>
+                
             <View style={{flex: 2}}></View>
+            <TouchableWithoutFeedback
+                onPress={() => {
+                  navigation.navigate('StartPage');
+                }}>
+            <View style={styles.continueLogin}>
+            
+                  <Text style={styles.continueText}>Sign Up</Text>
+                </View>
           </View>
       </SafeAreaView>
     </>
@@ -43,15 +72,45 @@ const SignUp = ({navigation}) => {
 
 const styles = StyleSheet.create({
   buttonLogin: {
-    borderWidth: 4,
+    borderWidth: 3,
     borderRadius: 100,
-    backgroundColor: "black",
+    backgroundColor: "white",
 
   },
+
+continueLogin: {
+    borderWidth: 3,
+    borderRadius: 100,
+    backgroundColor: "#fcd158",
+
+  },
+
+  headerText:{
+    fontSize: 45,
+    textAlign: "center",
+    color: "navy blue",
+    fontStyle:"oblique"
+
+
+  },
+
+   continueText:{
+    fontSize: 30,
+    textAlign: "center",
+    color: "navy blue",
+    fontStyle:"oblique"
+
+
+
+
+  },
+
   buttonText: {
     fontSize: 30,
     textAlign: "center",
-    color: "white",
+    color: "navy blue",
+    fontStyle:"oblique"
+    
   },
   body: {
     backgroundColor: "#E5E5E5",
@@ -64,8 +123,8 @@ const styles = StyleSheet.create({
   },
   hLine: {
     height: 1,
-    borderColor: "black",
-    borderWidth: 1,
+    borderColor: "#E5E5E5",
+    borderWidth: 10,
     width: "75%",
     opacity: 0.5,
   },
@@ -73,6 +132,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
+  textbox:{
+    height:1000,
+    borderColor:"green",
+  }
 });
 
 export default SignUp;
