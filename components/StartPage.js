@@ -27,7 +27,23 @@ const StartPage = ({navigation}) => {
       <StatusBar barStyle="dark-content" />
       <ImageBackground source={require('../assets/get-started.png')} style={styles.background}>
         <SafeAreaView style={styles.body}>
+            <View style={{flex:3}}/>
+            <View style={styles.circle}>
+                <Text style={styles.title}>hello roomie!</Text>
+            </View>
+            <View style={{flex:4}}/>
+            <View style={styles.sectionContainer}>
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  navigation.navigate('SignUp');
+                }}>
+                <View style={styles.buttonLogin}>
+                  <Text style={styles.buttonText}>Get Started!</Text>
+                </View>
+              </TouchableWithoutFeedback>
+            </View>
             
+            <View style={{flex:1}}/>
         </SafeAreaView>
     </ImageBackground>
     </>
@@ -35,26 +51,42 @@ const StartPage = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  buttonLogin: {
-    borderWidth: 4,
-    borderRadius: 100,
-    backgroundColor: "black",
-
-  },
-  buttonText: {
-    fontSize: 30,
-    textAlign: "center",
-    color: "white",
-  },
   body: {
-    backgroundColor: "#E5E5E5",
     flex: 1,
-    opacity: 0,
+    justifyContent: "center",
+    alignItems: "center"
   },
   sectionContainer: {
     marginTop: 20,
     marginBottom: 20,
-    paddingHorizontal: 24,
+    paddingHorizontal: 50,
+    opacity: 1,
+  },
+  circle: {
+      height: 200,
+      width: 200,
+      borderRadius: 100,
+      backgroundColor: "black",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttonLogin: {
+    borderWidth: 4,
+    borderRadius: 100,
+    backgroundColor: "#EAC435",
+    borderColor: "#EAC435",
+    opacity: 1,
+    paddingLeft: 60,
+    paddingRight: 60,
+  },
+  title: {
+    color: "yellow",
+    fontSize: 30,
+  },
+  buttonText: {
+    fontSize: 32,
+    textAlign: "center",
+    color: "black",
   },
   hLine: {
     height: 1,
